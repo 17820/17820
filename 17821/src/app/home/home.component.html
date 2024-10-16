@@ -1,0 +1,19 @@
+<div class="tree">
+  <div class="leaf special" (click)="toggleZoom($event)">
+    <div class="popup" [ngClass]="{'centered': zoomState === 'zoomed'}">
+      <a href="https://example.com">Visita este enlace</a>
+      <p>Este es un enlace especial faffafdfsfsfd fafafffffffffffffffffffffffffl</p>
+    </div>
+  </div>
+  <div class="leaf special" (click)="toggleZoom($event)">
+    <div class="popup" [ngClass]="{'centered': zoomState === 'zoomed'}">
+      <a href="https://example.com">Visita este enlace</a>
+      <p>Este es un enlace especial faffafdfsfsfd fafafffffffffffffffffffffffffl</p>
+    </div>
+  </div>
+  <div class="leaf normal"></div>
+  <div class="popup centered" *ngIf="zoomState === 'zoomed'">
+    <a href="https://example.com">Visita este enlace</a>
+    <p>Este es un enlace especial faffafdfsfsfd fafafffffffffffffffffffffffffl</p>
+  </div>     
+</div>
