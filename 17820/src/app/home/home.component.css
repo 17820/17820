@@ -5,27 +5,6 @@
   background-size: cover;
 }
 
-.popup.centered {
-  width: 20vw; 
-  height: 30vh;
-  top: 30%; 
-  left: 40%; 
-  position: fixed;
-  background-color: white;
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  z-index: 1000;
-  overflow: auto;
-  font-size: large;
-  transform: scale(0); /* Inicialmente pequeño */
-  transition: transform 0.5s ease-in-out; /* Animación de zoom */
-}
-
-.popup.centered.zoomed {
-  transform: scale(1); /* Escalar a tamaño completo */
-}
-
 .leaf {
   position: absolute;
   width: 20px;
@@ -61,8 +40,33 @@
   font-size: 6px; 
   color: #333;
   text-align: center;
+  transition: all 0.6s ease;
 }
 
 .leaf.special:hover .popup {
   display: block;
+}
+
+.zoomTarget {
+  cursor: pointer;
+  transition: transform var(--zoom-duration, 0.6s) ease-in-out;
+}
+
+.zoomTarget.zoomed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(var(--zoom-targetsize, 1.5));
+  z-index: 1000;
+}
+
+.popup.visible {
+  display: block !important;
+}
+
+.popup.fixed {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
