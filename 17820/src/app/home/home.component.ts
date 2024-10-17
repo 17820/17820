@@ -13,41 +13,31 @@ import * as $ from 'jquery';
 export class HomeComponent implements AfterViewInit {
 
   ngAfterViewInit() {
-    // Inicializar Zoomooz en los elementos con la clase zoomTarget
-    ($('.zoomTarget') as any).zoomTarget();
-  }
+    // Seleccionar los elementos con la clase zoomTarget
+    const zoomTargets = $('.zoomTarget');
+    let clickedInside = false;
 
-  togglePopup(event: MouseEvent) {
-    const leaf = event.currentTarget as HTMLElement;
-    const popup = leaf.querySelector('.popup') as HTMLElement;
-
-    if (popup.classList.contains('visible')) {
-      popup.classList.remove('visible');
-      ($(popup) as any).zoomTo({ targetsize: 1.0, duration: 600 });
-      popup.classList.remove('zoomed');
-      popup.classList.remove('fixed');
-    } else {
-      popup.classList.add('visible');
-      ($(popup) as any).zoomTo({ targetsize: 1.5, duration: 600, callback: () => {
-        popup.classList.add('zoomed');
-        popup.classList.add('fixed');
-      }});
-    }
-
-    // Añadir eventos mouseenter y mouseleave
-    popup.addEventListener('mouseenter', () => {
-      popup.classList.add('hovered');
+    // Manejar el evento de clic dentro del popup
+    zoomTargets.on('click', function() {
+      clickedInside = true;
     });
 
-    popup.addEventListener('mouseleave', () => {
-      if (popup.classList.contains('zoomed')) {
-        popup.classList.remove('hovered');
-      } else {
-        popup.classList.remove('hovered');
-        popup.classList.remove('visible');
-        ($(popup) as any).zoomTo({ targetsize: 1.0, duration: 600 });
-        popup.classList.remove('zoomed');
-        popup.classList.remove('fixed');
+    // Manejar el evento de mouseleave
+    zoomTargets.on('mouseleave', function() {
+      if (clickedInside) {
+        const duration = $(this).data('duration') || 600;
+        $(this).css({
+          transform: 'scale(1)',
+          transition: `transform ${duration}ms`
+        });
+
+        // Simular clic si data-closeclick es true
+        if ($(this).data('closeclick')) {
+          $(this).click();
+        }
+
+        // Resetear la bandera
+        clickedInside = false;
       }
     });
   }
