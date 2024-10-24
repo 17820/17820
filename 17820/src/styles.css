@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --popup-bg-color: #f9f9f9;
+    --popup-border-color: #ccc;
+    --popup-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --popup-padding: 30px;
+    --popup-radius: 8px;
+    --leaf-size: 20px;
+    --leaf-hover-scale: 2.5;
+    --overlay-bg-color: rgba(0, 0, 0, 0.5);
+  }
+  
