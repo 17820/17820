@@ -1,15 +1,64 @@
 <div class="tree">
-  <div class="leaf special">
-    <div class="popup zoomTarget" data-targetsize="1.5" data-duration="600" data-closeclick="true">
-      <a href="https://example.com">Visita este enlace</a>
-      <p>Este es un enlace especial faffafdfsfsfd fafafffffffffffffffffffffffffl</p>
+  <div class="leaf-container">
+    <div class="hover-area">
+      <div class="leaf special">
+        <div class="popup" (click)="togglePopup($event)">
+          <a href="https://example.com">Visita este enlace</a>
+          <p>Este es un enlace especial faffafdfsfsfd fafafffffffffffffffffffffffffl</p>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="leaf special">
-    <div class="popup zoomTarget" data-targetsize="1.5" data-duration="600" data-closeclick="true">
-      <a href="https://example.com">Visita este enlace</a>
-      <p>Este es un enlace especial faffafdfsfsfd fafafffffffffffffffffffffffffl</p>
+  <div class="leaf-container">
+    <div class="hover-area">
+      <div class="leaf special">
+        <div class="popup" (click)="togglePopup($event)">
+          <a href="https://example.com">Visita este enlace</a>
+          <p>Este es u m cfakfañfakfa lfdañfak ñfalf</p>
+          <p>Ei hola que tal aixo es una prova per veure si funciona lo del zoomTarget</p>
+          <p>Este es un enlace 
+            especial faffafdfsfsfd 
+            fafafffffffffff
+            ffffffffffffffl fafafdkjfdafa
+            fajfdiajofafad
+            afjiossssssdddddd
+          </p>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="leaf normal"></div>
+  <div class="leaf-container">
+    <div class="hover-area">
+      <div class="leaf normal"></div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" *ngIf="showPopup2"></div>
+
+<div class="popup2" *ngIf="showPopup2">
+  <div class="popup-content">
+    <span class="close" (click)="closePopup2()">&times;</span>
+    <div class="scroll-container">
+      <p>Some text in the Modal.. Some text in the Modal.
+        Some text in the Modal.
+        Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal. Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal. Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal.
+        Some text in the Modal.Some text in the Modal.Some text in the Modal.
+      </p>
+    </div>
+  </div>
 </div>

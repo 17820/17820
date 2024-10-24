@@ -27,10 +27,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "src/assets/jquery.min.js",
-              "src/assets/jquery.zoomooz.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
