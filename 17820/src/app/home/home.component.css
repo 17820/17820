@@ -1,8 +1,14 @@
 .tree {
   position: relative;
   width: 100vw; 
-  height: 100vh; 
-  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-image: url('../../assets/fonsArbre.jpg'); /* Ruta a tu imagen */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-repeat: no-repeat; /* No repite la imagen */
+  background-position: center center; /* Centra la imagen */
+  background-attachment: fixed; /* Fija la imagen de fondo */
 }
 
 .leaf {
@@ -12,44 +18,59 @@
   background-color: green;
   border-radius: 50%;
   transition: transform 0.3s ease;
+  z-index: 1; /* Asegúrate de que los puntos rojos tengan un z-index menor */
 }
 
 .leaf.special {
-  background-color: red; 
+  background-color: red;
+  transform-origin: 50% 50%;
 }
 
 .leaf.special:hover {
-  transform: scale(3); 
-}
-
-.leaf:nth-child(1) { top: 50px; left: 100px; }
-.leaf:nth-child(2) { top: 150px; left: 200px; }
-.leaf:nth-child(3) { top: 250px; left: 50px; }
-
-.popup {
-  display: none;
-  position: absolute;
-  top: -30px; 
-  left: 20px; 
-  width: 100px;
-  padding: 5px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-size: 6px; 
-  color: #333;
-  text-align: center;
-  transition: all 0.6s ease;
+  transform: scale(3);
 }
 
 .leaf.special:hover .popup {
   display: block;
+  left: 50%;
+  top: 50%;
+}
+.leaf:nth-child(1) { 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%) rotate(0deg) translate(100px) rotate(0deg); 
+}
+
+.leaf:nth-child(2) { 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%) rotate(120deg) translate(100px) rotate(-120deg); 
+}
+
+.leaf:nth-child(3) { 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%) rotate(240deg) translate(100px) rotate(-240deg); 
+}
+
+.popup {
+  display: none;
+  width: 120px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde semitransparente */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  font-size: 8px;   
+  color: #333;
+  text-align: center;
+  transform: translate(-50%, -50%) scale(1); /* Centra el popup y restablece la escala */
 }
 
 .zoomTarget {
   cursor: pointer;
-  transition: transform var(--zoom-duration, 0.6s) ease-in-out;
+  transition: transform var(--zoom-duration, 0.3s) ease-in-out;
+  
 }
 
 .zoomTarget.zoomed {
@@ -57,7 +78,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(var(--zoom-targetsize, 1.5));
-  z-index: 1000;
 }
 
 .popup.visible {
@@ -70,3 +90,4 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
