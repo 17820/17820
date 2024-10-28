@@ -17,11 +17,13 @@
 
 .leaf-container {
   position: relative;
+  width: var(--leaf-size);
 }
 
 .hover-area {
   position: relative;
   padding: 20px; 
+  width: var(--leaf-size);
 }
 
 .leaf {
@@ -104,10 +106,13 @@ a {
 }
 
 .close {
-  cursor: pointer;  
   display: flex;
   justify-content: flex-end;
-  padding: 10px 7.5px 10px 10px;
+  padding: 10px 7.5px 15px 10px;
+}
+
+.close i{
+  cursor: pointer;
 }
 
 .popup2.show {
