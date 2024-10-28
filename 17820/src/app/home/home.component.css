@@ -1,8 +1,18 @@
+
+
 .tree {
-  position: relative;
-  width: 100vw; 
-  height: 100vh; 
+  background-image: url('../../assets/images/arbreFons2.png');
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* Afegeix aquestes propietats IMPORTANTS PERQUE TREU EL PROBLEMA DELS MARGES */
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: fixed;  /* o absolute depenent del teu cas */
+  top: 0;
+  left: 0;
 }
 
 .leaf-container {
@@ -18,13 +28,14 @@
   position: relative;
   width: var(--leaf-size);
   height: var(--leaf-size);
-  background-color: green;
-  border-radius: 50%;
+  background-image: url('../../assets/images/fulla.png'); /* Ruta a tu imagen */
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-repeat: no-repeat; /* No repite la imagen */
+  background-position: center center; /* Centra la imagen */
   transition: transform 0.3s ease;
 }
 
 .leaf.special {
-  background-color: red; 
 }
 
 .leaf.special:hover {

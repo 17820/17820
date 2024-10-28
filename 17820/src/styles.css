@@ -4,7 +4,7 @@
     --popup-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     --popup-padding: 30px;
     --popup-radius: 8px;
-    --leaf-size: 20px;
+    --leaf-size: 100px;
     --leaf-hover-scale: 2.5;
     --overlay-bg-color: rgba(0, 0, 0, 0.5);
   }
