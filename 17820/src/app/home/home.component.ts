@@ -5,6 +5,7 @@ import { Component, AfterViewChecked, Renderer2 } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements AfterViewChecked {
   showPopup2 = false;
 
