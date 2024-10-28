@@ -85,10 +85,10 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 30vw;
+  width: 40vw;
   height: 70vh;
   max-height: 90vh;
-  padding: var(--popup-padding);
+  padding: var(--popup-padding-top) var(--popup-padding) var(--popup-padding) var(--popup-padding); 
   background-color: var(--popup-bg-color);
   border: 1px solid var(--popup-border-color);
   border-radius: var(--popup-radius);
@@ -100,10 +100,14 @@ a {
 .popup2 p {
   text-align: justify;
   font-size: 1em;
+  color: var(--popup-close-color);
 }
 
 .close {
   cursor: pointer;  
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 7.5px 10px 10px;
 }
 
 .popup2.show {
@@ -113,13 +117,19 @@ a {
 
 .popup-content {
   max-height: 100%;
-  overflow-y: auto;
+  overflow: hidden; 
 }
 
 .scroll-container {
   max-height: 80vh; 
   overflow-y: auto;
-  padding-right: 20px; 
+  padding: 10px 40px 40px 40px; /* top, right, bottom, left */
+  border-radius: 10px;
+  scrollbar-width: 10px;
+}
+
+.modal-title {
+  margin: auto;
 }
 
 .fade-in {
@@ -154,6 +164,6 @@ a {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--overlay-bg-color); 
+  backdrop-filter: blur(2px);
   z-index: 1000; 
 }
