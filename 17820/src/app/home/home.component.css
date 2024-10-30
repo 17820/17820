@@ -1,7 +1,5 @@
-
-
 .tree {
-  background-image: url('../../assets/images/arbreFons2.png');
+  background-image: url('../../assets/images/arbreFons3.1.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -13,6 +11,8 @@
   position: fixed;  /* o absolute depenent del teu cas */
   top: 0;
   left: 0;
+  z-index: -1;
+  overflow-x: hidden;
 }
 
 .leaf-container {
@@ -32,7 +32,7 @@
   background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
   background-repeat: no-repeat; /* No repite la imagen */
   background-position: center center; /* Centra la imagen */
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
 .leaf.special {
@@ -42,28 +42,88 @@
   transform: scale(var(--leaf-hover-scale)); 
 }
 
-.leaf-container:nth-child(1) { top: 70px; left: 125px; }
-.leaf-container:nth-child(2) { top: 170px; left: 225px; }
-.leaf-container:nth-child(3) { top: 270px; left: 100px; }
+.leaf-wrapper:nth-child(1) {
+  display: inline-block;
+  transform: rotate(15deg);
+}
+.leaf-container:nth-child(1) {
+  top: 3vh;
+  left: 52vw;
+}
+
+.leaf-container:nth-child(2) {
+  top: -10vh;
+  left: 60vw;
+}
+
+.leaf-container:nth-child(3) {
+  top: -1vh;
+  left: 27vw;
+}
 
 .popup {
   display: none;
   position: absolute;
-  top: -30px; 
-  left: 25px; 
-  width: 10vw;
+  top: 80%; /* Coloca el popup justo debajo del elemento padre */
+  left: 45%; /* Centra el popup */
+  width: 8vw;
   padding: 5px;
-  background-color: var(--popup-bg-color);
-  border: 1px solid var(--popup-border-color);
+  transform: translateX(-50%) scale(0.8); /* Escala inicial més petita */
+  opacity: 0; /* Invisible inicialment */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Transicions */
+  background-color: #333; /* Fondo gris oscuro */
+  border: 1px solid #444; 
   border-radius: var(--popup-radius);
-  box-shadow: var(--popup-box-shadow);
-  color: #333;
-  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+  color: #fff;
+  text-align: justify;
   cursor: pointer;
+  font-family: 'Roboto', sans-serif; /* Fuente moderna */
 }
+.popup h2 {
+  font-size: 0.8em; /* Ajusta la mida del títol */
+  margin-bottom: 10px; /* Espai inferior */
+  text-align: center;
+  color:rgb(193, 193, 30);
+}
+
+.popup a {
+  color:rgb(193, 193, 30);
+}
+
+.falling-leaf {
+  position: absolute;
+  background-image: url('../../assets/images/fulla.png'); /* Ruta a la imatge de la fulla */
+  background-size: cover;
+  background-repeat: no-repeat;
+  will-change: transform;
+  animation: fall linear infinite;
+}
+
+.leaves-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 100;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
 
 .hover-area:hover .popup {
   display: block;
+  opacity: 1; /* Fa visible el popup */
+  transform: translateX(-50%) scale(1); /* Escala a mida original */
 }
 
 a {
@@ -85,15 +145,17 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40vw;
+  width: 60vw;
   height: 70vh;
   max-height: 90vh;
   padding: var(--popup-padding-top) var(--popup-padding) var(--popup-padding) var(--popup-padding); 
-  background-color: var(--popup-bg-color);
-  border: 1px solid var(--popup-border-color);
+  background-color: #333; /* Fondo gris oscuro */
+  border: 1px solid #444; 
   border-radius: var(--popup-radius);
-  box-shadow: var(--popup-box-shadow);
-  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+  color: #fff;
+  text-align: justify;
+  font-family: 'Roboto', sans-serif; /* Fuente moderna */
   z-index: 1000;
 }
 
@@ -102,6 +164,7 @@ a {
   font-size: 1em;
   color: var(--popup-close-color);
 }
+
 
 .close {
   cursor: pointer;  
@@ -126,6 +189,7 @@ a {
   padding: 10px 40px 40px 40px; /* top, right, bottom, left */
   border-radius: 10px;
   scrollbar-width: 10px;
+  
 }
 
 .modal-title {
