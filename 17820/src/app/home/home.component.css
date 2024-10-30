@@ -194,16 +194,38 @@ a {
 }
 
 .scroll-container {
-  max-height: 80vh; 
+  max-height: calc(80vh - 120px); /* Estableix l'alçada màxima al 80% de l'alçada de la finestra menys 100 píxels, assegurant que el contenidor no excedeixi aquesta mida i permeti espai per a altres elements de la interfície */  
   overflow-y: auto;
-  padding: 10px 40px 40px 40px; /* top, right, bottom, left */
+  padding: 3px 40px 0px 40px; /* top, right, bottom, left */
   border-radius: 10px;
+  box-sizing: border-box;
   scrollbar-width: 10px;
-  
+}
+
+/* Estil dels scrollbars per a Chrome, Safari i Edge */
+
+.scroll-container::-webkit-scrollbar {
+  width: 7.5px;
+  transition: width 0.3s;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: rgb(20, 20, 20);
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  width: 10px; 
+  background: #959595;
 }
 
 .modal-title {
-  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .fade-in {
