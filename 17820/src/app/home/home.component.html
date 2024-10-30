@@ -3,7 +3,7 @@
 <div class="leaves-container"></div>
 <div class="tree">
   <div class="leaf-container">
-    <div class="hover-area">
+    <div class="hover-area" (mouseenter)="showPopup($event)" (mouseleave)="hidePopup($event)">
       <div class="leaf special">
         <div class="popup" (click)="togglePopup($event)">
           <h2 class="modal-title">Millora de les infraestructures públiques</h2>
@@ -15,7 +15,7 @@
     </div>
   </div>
   <div class="leaf-container">
-    <div class="hover-area">
+    <div class="hover-area" (mouseenter)="showPopup($event)" (mouseleave)="hidePopup($event)">
       <div class="leaf special">
         <div class="popup" (click)="togglePopup($event)">
           <h2 class="modal-title">Foment de l'educació i la cultura</h2>
@@ -44,8 +44,8 @@
 
 <div class="popup2" *ngIf="showPopup2">
   <div class="popup-content">
-    <div class="close" (click)="closePopup2()">
-      <i class="fa-solid fa-xmark"></i>
+    <div class="close">
+      <i class="fa-solid fa-xmark" (click)="closePopup2()"></i>
     </div>
     <div class="scroll-container">
       <div class="popup-text">
