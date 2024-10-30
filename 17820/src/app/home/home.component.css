@@ -30,27 +30,32 @@
   position: relative;
   width: var(--leaf-size);
   height: var(--leaf-size);
-  background-image: url('../../assets/images/fulla.png'); /* Ruta a tu imagen */
+  background-image: url('../../assets/images/fullaRecte.png'); /* Ruta a tu imagen */
   background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
   background-repeat: no-repeat; /* No repite la imagen */
   background-position: center center; /* Centra la imagen */
   transition: transform 0.5s ease;
 }
 
-.leaf.special {
+.leaf.special.one {
+  transform: rotate(-20deg);
+}
+
+.leaf.special.two {
+  transform: rotate(30deg);
+}
+
+.leaf.special.three {
+  transform: rotate(-30deg);
 }
 
 .leaf.special:hover {
   transform: scale(var(--leaf-hover-scale)); 
 }
 
-.leaf-wrapper:nth-child(1) {
-  display: inline-block;
-  transform: rotate(15deg);
-}
 .leaf-container:nth-child(1) {
   top: 3vh;
-  left: 52vw;
+  left: 51.5vw;
 }
 
 .leaf-container:nth-child(2) {
@@ -59,8 +64,8 @@
 }
 
 .leaf-container:nth-child(3) {
-  top: -1vh;
-  left: 27vw;
+  top: 0vh;
+  left: 26.2vw;
 }
 
 .popup {
@@ -95,7 +100,7 @@
 
 .falling-leaf {
   position: absolute;
-  background-image: url('../../assets/images/fulla.png'); /* Ruta a la imatge de la fulla */
+  background-image: url('../../assets/images/fullaRecte.png'); /* Ruta a la imatge de la fulla */
   background-size: cover;
   background-repeat: no-repeat;
   will-change: transform;
